@@ -1,11 +1,11 @@
 Name:           copyparty
 Version:        1.19.15
-Release:        0%{?dist}
+Release:        1%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
 URL:            https://github.com/9001/copyparty
-Source:         %{url}/archive/refs/tags/v%{version}.tar.gz
+Source:         %{url}/releases/download/v%{version}/copyparty-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -51,16 +51,13 @@ Summary: Mount a copyparty instance through FUSE
 %doc README.md
 %license LICENSE
 %{_bindir}/copyparty
-%{_docdir}/copyparty/LICENSE
 
 %files -n copyparty-u2c
 %{_bindir}/u2c
-%{_bindir}/u2c.py
 
 %files -n copyparty-partyfuse
 %{_bindir}/partyfuse
-%{_bindir}/partyfuse.py
 
 %changelog
-* Thu Jul 31 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.18.8-0
+* Sun Oct 5 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.15-1
 - Initial build
