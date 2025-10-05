@@ -12,6 +12,7 @@ BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(pytest)
 
+# On-the-fly certificate generation when available
 Recommends:     golang-github-cloudflare-cfssl
 
 # Thumbnailing, media indexing, and audio transcoding functionality
