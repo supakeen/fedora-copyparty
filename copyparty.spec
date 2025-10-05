@@ -1,6 +1,6 @@
 Name:           copyparty
 Version:        1.19.15
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
@@ -13,6 +13,10 @@ BuildRequires:  python3-devel
 BuildRequires:  python3dist(pytest)
 
 Recommends:     golang-github-cloudflare-cfssl
+
+# Thumbnailing, media indexing, and audio transcoding functionality
+Recommends:     python3-pillow
+Recommends:     ffmpeg
 
 %global _description %{expand:
 Portable file server with accelerated resumable uploads, deduplication, WebDAV, FTP, zeroconf, media indexer, video thumbnails, audio transcoding, and write-only folders
@@ -60,5 +64,5 @@ Summary: Mount a copyparty instance through FUSE
 %{_bindir}/partyfuse
 
 %changelog
-* Sun Oct 5 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.15-2
+* Sun Oct 5 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.15-3
 - Initial build
