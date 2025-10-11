@@ -1,6 +1,6 @@
 Name:           copyparty
 Version:        1.19.16
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
@@ -55,6 +55,10 @@ Summary: Mount a copyparty instance through FUSE
 # [1]: https://github.com/9001/copyparty/issues/887#issuecomment-3368299632
 rm -rf copyparty/stolen/qrcodegen.py
 
+# Only vendored for Python 2 support, see [1]
+# [1]: https://github.com/9001/copyparty/issues/887#issuecomment-3368299632
+rm -rf copyparty/stolen/surrogateescape.py
+
 %generate_buildrequires
 %pyproject_buildrequires
 
@@ -80,5 +84,5 @@ rm -rf copyparty/stolen/qrcodegen.py
 %{_bindir}/partyfuse
 
 %changelog
-* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-2
+* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-3
 - Initial build
