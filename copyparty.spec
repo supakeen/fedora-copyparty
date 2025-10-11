@@ -1,6 +1,6 @@
 Name:           copyparty
 Version:        1.19.16
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
@@ -15,6 +15,7 @@ BuildRequires:  python3dist(pytest)
 
 Requires:       python3dist(qrcodegen)
 Requires:       python3dist(ifaddr)
+Requires:       python3dist(dnslib)
 
 # Test requirements are generally the same as those needed
 # for runtime.
@@ -64,6 +65,10 @@ rm -rf copyparty/stolen/surrogateescape.py
 # [1]: https://github.com/9001/copyparty/issues/887#issuecomment-3368299632
 rm -rf copyparty/stolen/ifaddr
 
+# Vendored (and upstream patched) for an Avahi bug, see [1]
+# [1]: https://github.com/9001/copyparty/issues/887#issuecomment-3368299632
+rm -rf copyparty/stolen/dnslib
+
 %generate_buildrequires
 %pyproject_buildrequires
 
@@ -89,5 +94,5 @@ rm -rf copyparty/stolen/ifaddr
 %{_bindir}/partyfuse
 
 %changelog
-* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-4
+* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-5
 - Initial build
