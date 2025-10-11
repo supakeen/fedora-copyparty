@@ -1,6 +1,6 @@
 Name:           copyparty
 Version:        1.19.16
-Release:        0%{?dist}
+Release:        2%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
@@ -11,6 +11,13 @@ BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3dist(pytest)
+
+
+Requires:       python3dist(qrcodegen)
+
+# Test requirements are generally the same as those needed
+# for runtime.
+BuildRequires:  python3dist(qrcodegen)
 
 # On-the-fly certificate generation when available
 Recommends:     golang-github-cloudflare-cfssl
@@ -40,6 +47,14 @@ Summary: Mount a copyparty instance through FUSE
 %prep
 %autosetup -p1 -n copyparty-%{version}
 
+# Upstream vendors certain Python libraries but has made it possible in the
+# 1.19.16 release [1] to unvendor them. Let's do that.
+# [1]: https://github.com/9001/copyparty/releases/tag/v1.19.16
+
+# Only vendored for size see [1]
+# [1]: https://github.com/9001/copyparty/issues/887#issuecomment-3368299632
+rm -rf copyparty/stolen/qrcodegen.py
+
 %generate_buildrequires
 %pyproject_buildrequires
 
@@ -65,5 +80,5 @@ Summary: Mount a copyparty instance through FUSE
 %{_bindir}/partyfuse
 
 %changelog
-* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-0
+* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-2
 - Initial build
