@@ -1,6 +1,6 @@
 Name:           copyparty
-Version:        1.19.15
-Release:        3%{?dist}
+Version:        1.19.16
+Release:        0%{?dist}
 Summary:        Portable fileserver with many supported protocols
 
 License:        MIT
@@ -65,5 +65,5 @@ Summary: Mount a copyparty instance through FUSE
 %{_bindir}/partyfuse
 
 %changelog
-* Sun Oct 5 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.15-3
+* Sat Oct 11 2025 Simon de Vlieger <cmdr@supakeen.com> - 1.19.16-0
 - Initial build
