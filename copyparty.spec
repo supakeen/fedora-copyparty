@@ -1,7 +1,7 @@
 Name:           copyparty
 Version:        1.19.16
 Release:        5%{?dist}
-Summary:        Portable fileserver with many supported protocols
+Summary:        Portable file server with many supported protocols
 
 License:        MIT
 URL:            https://github.com/9001/copyparty
@@ -29,7 +29,9 @@ Recommends:     python3-pillow
 Recommends:     ffmpeg
 
 %global _description %{expand:
-Portable file server with accelerated resumable uploads, deduplication, WebDAV, FTP, zeroconf, media indexer, video thumbnails, audio transcoding, and write-only folders
+Portable file server with accelerated resumable uploads, deduplication, WebDAV,
+FTP,zeroconf, media indexer, video thumbnails, audio transcoding, and write-only
+folders
 }
 
 %description %_description
