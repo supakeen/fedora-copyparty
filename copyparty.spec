@@ -62,7 +62,7 @@ folders
 %description %_description
 
 %package -n copyparty-u2c
-Summary: upload2copyparty client application.
+Summary: The upload2copyparty client application
 
 %description -n copyparty-u2c %_description
 
