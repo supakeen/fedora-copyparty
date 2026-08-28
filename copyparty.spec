@@ -22,7 +22,7 @@
 # [3]: https://docs.fedoraproject.org/en-US/packaging-guidelines/Web_Assets/#_css
 
 Name:           copyparty
-Version:        1.20.16
+Version:        1.20.21
 Release:        1%{?dist}
 Summary:        Portable file server with many supported protocols
 
@@ -62,11 +62,14 @@ folders
 %description %_description
 
 %package -n copyparty-u2c
+Requires: copyparty
+
 Summary: The upload2copyparty client application
 
 %description -n copyparty-u2c %_description
 
 %package -n copyparty-partyfuse
+Requires: copyparty
 Requires: python3dist(fusepy)
 
 Summary: Mount a copyparty instance through FUSE
@@ -121,5 +124,5 @@ rm -rf copyparty/stolen/dnslib
 %{_bindir}/partyfuse
 
 %changelog
-* Tue Jun 2 2026 Simon de Vlieger <cmdr@supakeen.com> - 1.20.16-1
+* Fri Aug 28 2026 Simon de Vlieger <cmdr@supakeen.com> - 1.20.21-1
 - Initial build
